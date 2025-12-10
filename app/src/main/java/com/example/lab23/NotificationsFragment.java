@@ -37,28 +37,11 @@ public class NotificationsFragment extends Fragment {
         Utils utils = new Utils();
         arrayList = utils.getFurnitureHistory();
 
-        // Nếu trống thì thêm dữ liệu test
-        if (arrayList.isEmpty()) {
-            utils.addFurnitureHistory(new Furniture(
-                    "Test Chair",
-                    "Sample history item",
-                    Furniture.convertStringToBitmapFromAccess(requireContext(), "chair.png")
-            ));
-            utils.addFurnitureHistory(new Furniture(
-                    "Test Sofa",
-                    "Sample sofa item",
-                    Furniture.convertStringToBitmapFromAccess(requireContext(), "sofa.png")
-            ));
-        }
-
-        // Hiển thị
         furnitureAdapter = new FurnitureAdapter(requireContext(), arrayList);
         listView.setAdapter(furnitureAdapter);
 
-        // Click item → thêm lại vào lịch sử
         listView.setOnItemClickListener((a, v, i, l) -> {
             utils.addFurnitureHistory(arrayList.get(i));
-
         });
     }
 

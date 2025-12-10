@@ -43,6 +43,11 @@ public class DashboardFragment extends Fragment {
 
         // Category 1: Chairs
         ArrayList<Furniture> chairs = new ArrayList<>();
+        chairs.add(new Furniture("Modern Chair", "Black leather",
+                Furniture.convertStringToBitmapFromAccess(requireContext(), "chair.png")));
+        chairs.add(new Furniture("Wooden Chair", "High quality wood",
+                Furniture.convertStringToBitmapFromAccess(requireContext(), "chair.png")));
+
         tmp.add(new Categories("Chairs", chairs,
                 Categories.convertStringToBitmapFromAccess(requireContext(), "chair.png")));
 

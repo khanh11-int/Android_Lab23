@@ -7,7 +7,9 @@ public class Utils {
     public static ArrayList<Furniture> furnitureHistory = new ArrayList<>();
 
     public void addFurnitureHistory(Furniture furniture){
-        furnitureHistory.add(0, furniture);
+        if(furnitureHistory.indexOf(furniture) > 0) {
+            this.furnitureHistory.add(0, furniture);
+        }
     }
 
     public ArrayList<Furniture> getFurnitureHistory(){
