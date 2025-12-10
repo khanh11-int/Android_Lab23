@@ -33,37 +33,33 @@ public class NotificationsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         listView = view.findViewById(R.id.listView);
+
         Utils utils = new Utils();
         arrayList = utils.getFurnitureHistory();
-        furnitureAdapter = new FurnitureAdapter(getContext(), arrayList);
-        listView.setAdapter(furnitureAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Utils.furnitureHistory.add(arrayList.get(i));
-            }
-        });
-        // ===============================
-        // 1. NẾU LỊCH SỬ TRỐNG → THÊM DỮ LIỆU TEST
-        // ===============================
-        if (Utils.furnitureHistory.isEmpty()) {
-            Utils.furnitureHistory.add(new Furniture(
+
+        // Nếu trống thì thêm dữ liệu test
+        if (arrayList.isEmpty()) {
+            utils.addFurnitureHistory(new Furniture(
                     "Test Chair",
                     "Sample history item",
                     Furniture.convertStringToBitmapFromAccess(requireContext(), "chair.png")
             ));
-
-            Utils.furnitureHistory.add(new Furniture(
+            utils.addFurnitureHistory(new Furniture(
                     "Test Sofa",
                     "Sample sofa item",
                     Furniture.convertStringToBitmapFromAccess(requireContext(), "sofa.png")
             ));
         }
 
-        // ===============================
-        // 2. HIỂN THỊ LÊN LISTVIEW
-        // ===============================
-        FurnitureAdapter adapter = new FurnitureAdapter(requireContext(), Utils.furnitureHistory);
-        listView.setAdapter(adapter);
+        // Hiển thị
+        furnitureAdapter = new FurnitureAdapter(requireContext(), arrayList);
+        listView.setAdapter(furnitureAdapter);
+
+        // Click item → thêm lại vào lịch sử
+        listView.setOnItemClickListener((a, v, i, l) -> {
+            utils.addFurnitureHistory(arrayList.get(i));
+
+        });
     }
+
 }
