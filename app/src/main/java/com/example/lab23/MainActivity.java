@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        // Nhận dữ liệu từ LoginActivity (nếu có)
         Intent loginData = getIntent();
         String username = loginData.getStringExtra("Username");
         String password = loginData.getStringExtra("password");

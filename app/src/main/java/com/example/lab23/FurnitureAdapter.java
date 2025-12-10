@@ -45,8 +45,7 @@ public class FurnitureAdapter extends BaseAdapter {
         ViewHolder holder;
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(context)
-                    .inflate(R.layout.item_furniture, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_furniture, parent, false);
 
             holder = new ViewHolder();
             holder.txtName = convertView.findViewById(R.id.txtName);

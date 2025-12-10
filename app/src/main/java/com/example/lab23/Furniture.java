@@ -1,6 +1,7 @@
 package com.example.lab23;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
@@ -24,8 +25,9 @@ public class Furniture implements Serializable {
     public Bitmap getImage() { return image; }
 
     public static Bitmap convertStringToBitmapFromAccess(Context context, String filename){
+        AssetManager assetManager = context.getAssets();
         try {
-            InputStream is = context.getAssets().open(filename);
+            InputStream is = assetManager.open(filename);
             return BitmapFactory.decodeStream(is);
         } catch (Exception e){
             e.printStackTrace();

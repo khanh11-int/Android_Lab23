@@ -46,9 +46,7 @@ public class CategoriesAdapter extends BaseAdapter {
         ViewHolder holder;
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(context)
-                    .inflate(R.layout.item_grid_category, parent, false);
-
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_grid_category, parent, false);
             holder = new ViewHolder();
             holder.imgCategory = convertView.findViewById(R.id.imgCategory);
             holder.txtCategoryName = convertView.findViewById(R.id.txtCategoryName);

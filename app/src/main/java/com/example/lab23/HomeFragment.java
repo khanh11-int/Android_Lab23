@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,8 @@ public class HomeFragment extends Fragment {
     ListView listView;
     ArrayList<Furniture> arrayList;
     FurnitureAdapter furnitureAdapter;
-
+    public HomeFragment() {
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_home, container, false);
@@ -35,6 +37,7 @@ public class HomeFragment extends Fragment {
 
         listView.setOnItemClickListener((adapterView, v, pos, id) -> {
             Utils.furnitureHistory.add(arrayList.get(pos));
+            Toast.makeText(getContext(), pos+"", Toast.LENGTH_SHORT).show();
         });
     }
 

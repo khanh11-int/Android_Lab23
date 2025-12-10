@@ -18,7 +18,7 @@ public class DashboardFragment extends Fragment {
     GridView gridView;
     ArrayList<Categories> categoriesArrayList;
     CategoriesAdapter adapter;
-
+    public DashboardFragment() {}
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_dashboard, container, false);
